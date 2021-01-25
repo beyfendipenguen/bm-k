@@ -16,33 +16,40 @@ sat=size(Imfilled)*[1;0];
 sut=size(Imfilled)*[0;1];
 
 
-banknotbul=0;
+banknotbul=[0,0,0];
+toplam=0;
 for l=1:max(max(label))
   imglabel=(label==l);
-  banknotbul=0;
+  banknotbul=[0,0,0];
   for i=1:sat
-    if banknotbul==1
+    if banknotbul(1)>5 || banknotbul(2)>5 || banknotbul(3)>5
+      if banknotbul(1)>5
+        toplam+=100;
+      endif
+      if banknotbul(2)>5
+        toplam+=20;
+      endif
+      if banknotbul(3)>5
+        toplam+=50;
+      endif
       break;  
     endif
     for j=1:sut
       if imglabel(i,j)==1
-        %200
-        if (banknot(i,j,1)<103 && banknot(i,j,1)>93) && (banknot(i,j,2)<85 && banknot(i,j,2)>75) && (banknot(i,j,3)>63 && banknot(i,j,3)<73 ) 
-          printf("buldum 100 \n");
-          banknotbul=1;
-          break;
+        %100
+        if (banknot(i,j,1)<115 && banknot(i,j,1)>107) && (banknot(i,j,2)<80 && banknot(i,j,2)>75) && (banknot(i,j,3)>49 && banknot(i,j,3)<55 ) 
+          banknotbul(1)+=1;
         endif
-        if banknot(i,j,1)<136 && banknot(i,j,1)>106 && banknot(i,j,2)<92 && banknot(i,j,2)>82 && banknot(i,j,3)>64 && banknot(i,j,3)<74  
-          printf("buldum 20 \n");
-          banknotbul=1;
-          break;
+        %20
+        if banknot(i,j,1)<136 && banknot(i,j,1)>132 && banknot(i,j,2)<88 && banknot(i,j,2)>83 && banknot(i,j,3)>37 && banknot(i,j,3)<42  
+          banknotbul(2)+=1;
         endif
+        %50
         if banknot(i,j,1)<140 && banknot(i,j,1)>136 && banknot(i,j,2)<70 && banknot(i,j,2)>65 && banknot(i,j,3)>13 && banknot(i,j,3)<17  
-          printf("buldum 50 \n" );
-          banknotbul=1;
-          break;
+          banknotbul(3)+=1;
         endif
        endif
     endfor
   endfor
 endfor
+printf("%d \n",toplam);
