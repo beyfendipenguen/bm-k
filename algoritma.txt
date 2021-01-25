@@ -1,0 +1,13 @@
+if üstü 5 siyah sol 5 siyah kendisi beyaz:
+	if solüst != -1:
+		contuniue
+	else:
+           solüst[i,j]= A(i,j)
+	if a(i,j+1) == g
+		j+=1
+elif  sağ 5 siyah alt 5 siyah kendisi beyaz:
+	if sağalt =! -1:
+		continue
+	else:
+	   solalt[i,j] = A(i,j)
+A(solalt:soltüt , sa)
