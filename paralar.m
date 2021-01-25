@@ -3,6 +3,7 @@ banknot = imread("kırmızı1.jpg");
 gri = rgb2gray(banknot);
 
 brightw= gri<50; 
+
 brightw1 = imcomplement(brightw); 
 
 morph = strel("square",5); 
