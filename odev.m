@@ -3,7 +3,7 @@ banknot = imread("resim11.jpg");
 gri = rgb2gray(banknot);
 
 brightw= gri<30; 
-imshow(brightw);
+
 brightw1 = imcomplement(brightw); 
 
 morph = strel("square",6); 
@@ -52,4 +52,4 @@ for l=1:max(max(label))
     endfor
   endfor
 endfor
-printf("%d \n",toplam);
+printf("resimde %d tl vardır.\n",toplam);
